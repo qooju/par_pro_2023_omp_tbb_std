@@ -102,7 +102,7 @@ class TbbFunctorFoxAlg {
         if (size % grid == 0) {
             for (int l = iter.begin(); l != iter.end(); l++) {
                 for (uint i = 0; i < size; i++) {  // формирование обработка блоков
-                    for (uint j = 0; j < blockSize; j++) {  //заполнение блоков матрицы
+                    for (uint j = 0; j < blockSize; j++) {  // заполнение блоков матрицы
                         uint s = (i + j + k1) % size;
                         aBlock[j] = a[j + k1][s];
                         for (uint k = 0; k < blockSize; k++) {
@@ -154,7 +154,7 @@ bool algFoxMatrixMultiplySeq(const matrix &a, const matrix &b, matrix *out) {
     prepareOutMatrix(&bBlock, size, size);
 
     for (uint i = 0; i < blockSize; i++) {  // формирование обработка блока
-        for (uint j = 0; j < blockSize; j++) {  //заполнение блоков матрицы
+        for (uint j = 0; j < blockSize; j++) {  // заполнение блоков матрицы
             uint s = (i + j) % blockSize;
             aBlock[j] = a[j][s];
             for (uint k = 0; k < blockSize; k++) {
