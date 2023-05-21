@@ -95,8 +95,12 @@ class TbbFunctorFoxAlg {
         uint k2 = thread_coord2 * blockSize;
 
         std::vector<double> aBlock(blockSize, 0.0);
-        matrix bBlock;
-        matrix cBlock;
+          matrix bBlock(100);
+            matrix cBlock(100);
+            for (uint i = 0; i < 100; i++) {
+                bBlock[i].reserve(1000);
+                cBlock[i].reserve(1000);
+            }
         prepareOutMatrix(&cBlock, blockSize, blockSize);
         prepareOutMatrix(&bBlock, blockSize, blockSize);
         if (size % grid == 0) {
